@@ -8,17 +8,13 @@
                 </a>
             </div>
             &copy; {{ now.Format "2006"}} {{ .Site.Params.copyright }} All Rights Reserved
-            <div class="text-secondary">
-                Made with
-                <span class="text-danger">
-                    &#10084;
-                </span>
-                and
-                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
-                    title="Designed and developed by gurusabarish">
-                    Hugo Profile
-                </a>
-            </div>
         </div>
     </div>
+    {{ if .Site.Params.footer.links.enable | default false }}
+    <div class="row row-cols-6 justify-content-center">
+        {{ range .Site.Params.footer.links.items }}
+            <a class="text-center link-light" title="{{ .name }}" href="{{ .url }}">{{ .name }}</a>
+        {{ end }}
+    </div>
+    {{ end }}
 </div>
